@@ -3,9 +3,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Clock, Shield, Star, Phone, Mail, MapPin, CheckCircle, Shirt, Home, Calendar, Award } from "lucide-react"
 import BarNav from "@/components/barNav"
+import { useState } from "react"
+import ContactModal from "@/components/contactModal"
 
 
 export default function HomePage() {
+  const [showModal, setShowModal] = useState(false)
+  const [showMoreInfo, setShowMoreInfo] = useState(false)
   return (
     <div className="flex flex-col min-h-screen bg-white">
       {/* Header */}
@@ -15,7 +19,7 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-100">
+        <section className="py-20 lg:py-32 bg-gradient-to-br from-slate-50 to-slate-200">
           <div className="container mx-auto px-4 lg:px-6">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               <div className="space-y-8">
@@ -35,10 +39,39 @@ export default function HomePage() {
                   <Button size="lg" className="bg-slate-800 hover:bg-slate-700 text-white px-8">
                     Demander un devis gratuit
                   </Button>
-                  <Button size="lg" variant="outline" className="border-slate-300 text-slate-300 hover:bg-slate-50">
+                  <Button 
+                    size="lg" 
+                    variant="outline" 
+                    className="border-slate-300 text-slate-300 hover:bg-slate-50"
+                    onClick={() => setShowMoreInfo(!showMoreInfo)}
+                  >
                     En savoir plus
                   </Button>
                 </div>
+                
+                {showMoreInfo && (
+                  <div className="mt-6 p-6 bg-slate-50 rounded-lg border border-slate-200">
+                    <h3 className="text-lg font-semibold text-slate-800 mb-3">À propos de notre service</h3>
+                    <div className="space-y-3 text-slate-600">
+                      <p>
+                        <strong>RepassPro</strong> est votre partenaire de confiance pour tous vos besoins de repassage à domicile. 
+                        Notre équipe de professionnels expérimentés vous garantit un service de qualité supérieure.
+                      </p>
+                      <p>
+                        <strong>Notre expertise :</strong> Plus de 10 ans d'expérience dans le repassage professionnel, 
+                        nous maîtrisons toutes les techniques pour traiter vos vêtements avec le plus grand soin.
+                      </p>
+                      <p>
+                        <strong>Nos engagements :</strong> Ponctualité, qualité irréprochable, respect de vos vêtements 
+                        et satisfaction client garantie. Nous utilisons des équipements professionnels et des produits de qualité.
+                      </p>
+                      <p>
+                        <strong>Zone de service :</strong> Nous intervenons dans toute la région bruxelloise 
+                        avec un service rapide et efficace.
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <div className="flex items-center space-x-6 text-sm text-slate-600">
                   <div className="flex items-center space-x-2">
                     <CheckCircle className="h-5 w-5 text-green-600" />
@@ -196,16 +229,18 @@ export default function HomePage() {
               Contactez-nous dès maintenant pour votre premier devis gratuit
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="bg-white text-slate-800 hover:bg-slate-100 px-8">
-                Appeler maintenant
+              <Button size="lg" className="bg-white text-slate-800 hover:bg-slate-100 px-8" asChild>
+                <a href="tel:0487880098">Appeler maintenant</a>
               </Button>
               <Button
                 size="lg"
                 variant="outline"
                 className="border-white text-white hover:bg-white hover:text-slate-800 px-8"
+                onClick={() => setShowModal(true)}
               >
                 Devis en ligne
               </Button>
+              {showModal && <ContactModal isOpen={showModal} onClose={() => setShowModal(false)} />}
             </div>
           </div>
         </section>
@@ -236,7 +271,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex items-center space-x-2">
                   <MapPin className="h-4 w-4" />
-                  <span>Paris et région parisienne</span>
+                  <span>Bruxelles et region Bruxelloise</span>
                 </div>
               </div>
             </div>

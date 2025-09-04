@@ -13,7 +13,7 @@ function Calendar({ className, classNames, showOutsideDays = true, ...props }: C
         <DayPicker
             locale={fr}
             formatters={{
-                formatWeekdayName: (day, options) => day.toLocaleDateString('fr-FR', { weekday: 'short' }).slice(0, 2), // ex: "di", "lu", "ma"
+                formatWeekdayName: (day) => day.toLocaleDateString('fr-FR', { weekday: 'short' }).slice(0, 2), // ex: "di", "lu", "ma"
             }}
             showOutsideDays={showOutsideDays}
             className={cn('p-3', className)}
