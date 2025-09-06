@@ -41,3 +41,24 @@ export interface User {
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
 }
+export type Booking = {
+  id: string
+  date: string
+  time: string
+  status: "pending" | "confirmed" | "in-progress" | "completed" | "cancelled"
+  customer: {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    address: string
+    city: string
+    postalCode: string
+  }
+  services: string[]
+  estimatedItems: string
+  notes?: string
+  createdAt: string
+  totalEstimate?: number
+}
+

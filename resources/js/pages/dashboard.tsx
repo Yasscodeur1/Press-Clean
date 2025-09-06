@@ -25,7 +25,27 @@ import {
   MapPin,
   Trash2,
 } from "lucide-react"
-import type { Booking } from "@/types/booking"
+// Booking type definition
+export type Booking = {
+  id: string
+  date: string
+  time: string
+  status: "pending" | "confirmed" | "in-progress" | "completed" | "cancelled"
+  customer: {
+    firstName: string
+    lastName: string
+    email: string
+    phone: string
+    address: string
+    city: string
+    postalCode: string
+  }
+  services: string[]
+  estimatedItems: string
+  notes?: string
+  createdAt: string
+  totalEstimate?: number
+}
 
 // Données simulées pour l'exemple
 const mockBookings: Booking[] = [
