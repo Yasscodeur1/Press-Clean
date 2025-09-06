@@ -9,7 +9,7 @@
         "build:ssr": "vite build && vite build --ssr",
         "dev": "vite",
         "preview": "vite preview",
-        "deploy": "gh-pages -d dist",
+        "deploy": "gh-pages -d public/build",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
