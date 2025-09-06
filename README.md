@@ -1,29 +1,5 @@
 # Press-Clean
 
-    public function index()
-    {
-        $bookings = Booking::all();
-        return Inertia::render('Bookings/Index', [
-            'bookings' => $bookings,
-        //     'filters' => request()->all('search', 'trashed'),
-        //     'trashed' => Booking::onlyTrashed()->count(),
-        //     'services' => Booking::distinct()->pluck('services')->flatten()->unique(),
-        //     'estimated_items' => Booking::distinct()->pluck('estimated_items')->filter()->unique(),
-        //     'booking_dates' => Booking::distinct()->pluck('booking_date')->filter()->unique(),
-        //     'booking_times' => Booking::distinct()->pluck('booking_time')->filter()->unique(),
-        //     'cities' => Booking::distinct()->pluck('city')->filter()->unique(),
-        //     'postal_codes' => Booking::distinct()->pluck('postal_code')->filter()->unique(),
-        //     'total_bookings' => Booking::count(),
-        //     'total_services' => Booking::distinct()->pluck('services')->flatten()->unique()->count(),
-        //     'total_estimated_items' => Booking::distinct()->pluck('estimated_items')->filter()->unique()->count(),
-        //     'total_booking_dates' => Booking::distinct()->pluck('booking_date')->filter()->unique()->count(),
-        //     'total_booking_times' => Booking::distinct()->pluck('booking_time')->filter()->unique()->count(),
-        //     'total_cities' => Booking::distinct()->pluck('city')->filter()->unique()->count(),
-        //     'total_postal_codes' => Booking::distinct()->pluck('postal_code')->filter()->unique()->count(),
-        // ])->with([
-        ]);
-    }
-
 Voici une explication détaillée de chaque ligne commentée dans ta méthode index() du contrôleur, ligne par ligne :
 
 🔧 Méthode actuelle
