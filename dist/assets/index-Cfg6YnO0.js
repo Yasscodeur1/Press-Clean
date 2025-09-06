@@ -1,0 +1,1 @@
+import{K as r,j as e}from"./app-D7reNEmx.js";/* empty css            */function n(){const{bookings:t}=r().props;return e.jsxs("div",{children:[e.jsx("h1",{className:"text-xl font-bold mb-4",children:"Liste des réservations"}),e.jsx("ul",{children:t.map(s=>e.jsxs("li",{children:[s.first_name," ",s.last_name," – ",s.email]},s.id))})]})}export{n as default};
