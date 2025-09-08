@@ -10,6 +10,7 @@
         "dev": "vite",
         "preview": "vite preview",
         "deploy": "gh-pages -d public/build",
+        "deploy:landing": "gh-pages -d gh-pages",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
